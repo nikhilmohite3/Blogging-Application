@@ -6,7 +6,7 @@ import com.blogging.app.entities.Post;
 import com.blogging.app.payloads.PostDTO;
 
 public interface PostService {
-	PostDTO createPost(PostDTO postDto);
+	PostDTO createPost(PostDTO postDto, int userId, int categoryId);
 	PostDTO updatePost(PostDTO postDto, int postId);
 	void deletePost(int postId);
 	List<PostDTO> getAllPosts();
