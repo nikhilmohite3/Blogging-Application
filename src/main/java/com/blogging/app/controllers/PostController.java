@@ -63,10 +63,14 @@ public class PostController {
 			@RequestParam(value = "pageNumber", defaultValue = "0", required = false)
 			Integer pageNumber,
 			@RequestParam(value = "pageSize", defaultValue = "10", required = false)
-			Integer pageSize
+			Integer pageSize,
+			@RequestParam(value = "sortBy", defaultValue = "postId", required = false)
+			String sortBy,
+			@RequestParam(value = "sortDir", defaultValue = "ASC", required = false)
+			String sortDirection
 	) {
 		return new ResponseEntity<PostResponse>(
-				postService.getAllPosts(pageNumber, pageSize),
+				postService.getAllPosts(pageNumber, pageSize, sortBy, sortDirection),
 				HttpStatus.OK
 		);
 	}
