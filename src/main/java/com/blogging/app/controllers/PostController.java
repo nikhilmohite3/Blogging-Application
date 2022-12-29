@@ -3,6 +3,7 @@ package com.blogging.app.controllers;
 import java.util.List;
 
 import com.blogging.app.payloads.PostResponse;
+import com.blogging.app.utils.ApplicationConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +36,9 @@ public class PostController {
 	@GetMapping("/user/{userId}/posts")
 	public ResponseEntity<PostResponse> getPostsByUser(
 			@PathVariable int userId,
-			@RequestParam(value = "pageNumber", defaultValue = "0", required = false)
+			@RequestParam(value = "pageNumber", defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER, required = false)
 			Integer pageNumber,
-			@RequestParam(value = "pageSize", defaultValue = "10", required = false)
+			@RequestParam(value = "pageSize", defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE, required = false)
 			Integer pageSize
 	) {
 		PostResponse posts = postService.getPostByUser(userId, pageNumber, pageSize);
@@ -48,9 +49,9 @@ public class PostController {
 	@GetMapping("/category/{categoryId}/posts")
 	public ResponseEntity<PostResponse> getPostsByCategory(
 			@PathVariable int categoryId,
-			@RequestParam(value = "pageNumber", defaultValue = "0", required = false)
+			@RequestParam(value = "pageNumber", defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER, required = false)
 			Integer pageNumber,
-			@RequestParam(value = "pageSize", defaultValue = "10", required = false)
+			@RequestParam(value = "pageSize", defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE, required = false)
 			Integer pageSize
 	) {
 		PostResponse posts = postService.getPostByCategory(categoryId, pageNumber, pageSize);
@@ -60,13 +61,13 @@ public class PostController {
 	
 	@GetMapping("/posts")
 	public ResponseEntity<PostResponse> getAllPosts(
-			@RequestParam(value = "pageNumber", defaultValue = "0", required = false)
+			@RequestParam(value = "pageNumber", defaultValue = ApplicationConstants.DEFAULT_PAGE_NUMBER, required = false)
 			Integer pageNumber,
-			@RequestParam(value = "pageSize", defaultValue = "10", required = false)
+			@RequestParam(value = "pageSize", defaultValue = ApplicationConstants.DEFAULT_PAGE_SIZE, required = false)
 			Integer pageSize,
-			@RequestParam(value = "sortBy", defaultValue = "postId", required = false)
+			@RequestParam(value = "sortBy", defaultValue = ApplicationConstants.DEFAULT_SORT_BY_POSTS, required = false)
 			String sortBy,
-			@RequestParam(value = "sortDir", defaultValue = "ASC", required = false)
+			@RequestParam(value = "sortDir", defaultValue = ApplicationConstants.DEFAULT_SORT_BY_DIR_POSTS, required = false)
 			String sortDirection
 	) {
 		return new ResponseEntity<PostResponse>(
