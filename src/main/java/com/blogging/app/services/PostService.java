@@ -4,13 +4,14 @@ import java.util.List;
 
 import com.blogging.app.entities.Post;
 import com.blogging.app.payloads.PostDTO;
+import com.blogging.app.payloads.PostResponse;
 
 public interface PostService {
 	PostDTO createPost(PostDTO postDto, int userId, int categoryId);
 	PostDTO updatePost(PostDTO postDto, int postId);
 	void deletePost(int postId);
-	List<PostDTO> getAllPosts();
+	PostResponse getAllPosts(Integer pageNumber, Integer pageSize);
 	PostDTO getPostById(int postId);
-	List<PostDTO> getPostByCategory(int categoryId);
-	List<PostDTO> getPostByUser(int userId);
+	PostResponse getPostByCategory(int categoryId, Integer pageNumber, Integer pageSize);
+	PostResponse getPostByUser(int userId, Integer pageNumber, Integer pageSize);
 }

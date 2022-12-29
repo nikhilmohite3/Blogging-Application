@@ -15,7 +15,6 @@ import lombok.Builder;
 
 @Entity
 @Table(name = "users")
-@Builder
 public class User {
 
 	@Id
