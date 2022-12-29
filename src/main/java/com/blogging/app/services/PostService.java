@@ -14,4 +14,5 @@ public interface PostService {
 	PostDTO getPostById(int postId);
 	PostResponse getPostByCategory(int categoryId, Integer pageNumber, Integer pageSize);
 	PostResponse getPostByUser(int userId, Integer pageNumber, Integer pageSize);
+	List<PostDTO> searchPost(String title);
 }
